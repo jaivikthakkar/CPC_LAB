@@ -5,15 +5,13 @@ int main()
     int n,ver,rem,count=0;
     printf("enter n : ");
     scanf("%d",&n);
-    while (n!=0)
+    for (int i = 1; i <=32; i++)
     {
-       ver=n>>1;
-       rem=n-ver*2;
-       if (rem==1)
-       {
-        count++;
-       }
-       n=n/2;
+        if (n&1)
+        {
+            count++;
+        }
+        n=n>>1;
     }
     printf("%d",count);
     return 0;
