@@ -9,7 +9,7 @@ int main()
     for (i = 0; stri[i]!='\0'; i++)
     {
         printf("%c",stri[i]);
-        // ver=i;
+        
     }
     printf("string lentgh is %d",i);
     return 0;
