@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-    int n, flag = 1;
+    int n, flag = 1, best_frequency = 0, best_number;
     printf("enter your number n : ");
     scanf("%d", &n);
     int array[n], count = 0;
@@ -31,10 +31,29 @@ int main()
                     count++;
                 }
             }
-            if (count > 1)
+            if (best_frequency<count)
             {
-                printf("%d repeted == %d", array[i], count);
+                best_frequency=count;
+                best_number=array[i];
             }
+            while (best_frequency!=0)
+            {
+                count=0;
+                for (int k = i; k < n; k++)
+                {
+                    if (array[i] == array[k])
+                    {
+                        count++;
+                    }
+                }
+                if (best_frequency==count)
+                {
+                    printf("%d is repeted %d",array[i],count);
+                }
+                
+                best_frequency--;
+            }
+
         }
     }
     return 0;

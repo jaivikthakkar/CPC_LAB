@@ -1,7 +1,10 @@
  #include <stdio.h>
 
  int main()
- {
-     printf("hellow world0");
-     return 0;
- }
+{
+    int i = 0;
+    for (i = 0; i < 5; i = i++)
+    {
+        printf("%d", i);
+    }
+}
