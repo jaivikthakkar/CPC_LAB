@@ -1,60 +1,56 @@
 #include <stdio.h>
+
 int main()
 {
-    int n, flag = 1, best_frequency = 0, best_number;
-    printf("enter your number n : ");
-    scanf("%d", &n);
-    int array[n], count = 0;
+    int n, seen_before = 0, max_count = 0, count = 0,a=0;
+
+    printf("enter n : ");
+    scanf("%d",&n);
+    int array[n];
+    int arry_number[n];
     for (int i = 0; i < n; i++)
     {
-        printf("enetr your number :");
-        scanf("%d", &array[i]);
+        printf("enter your number : ");
+        scanf("%d",&array[i]);
     }
     for (int i = 0; i < n; i++)
     {
-        count = 0;
-        flag = 1;
-        for (int j = i - 1; j >= 0; j--)
+        seen_before=0;
+        for (int j = i-1; j >= 0 ; j--)
         {
-            if (array[i] == array[j])
+            if (array[i]==array[j])
             {
-                flag = 0;
-                break;
+                seen_before=1;
             }
         }
-        if (flag)
+        if (seen_before)
         {
-            for (int k = i; k < n; k++)
-            {
-                if (array[i] == array[k])
-                {
-                    count++;
-                }
-            }
-            if (best_frequency<count)
-            {
-                best_frequency=count;
-                best_number=array[i];
-            }
-            while (best_frequency!=0)
-            {
-                count=0;
-                for (int k = i; k < n; k++)
-                {
-                    if (array[i] == array[k])
-                    {
-                        count++;
-                    }
-                }
-                if (best_frequency==count)
-                {
-                    printf("%d is repeted %d",array[i],count);
-                }
-                
-                best_frequency--;
-            }
-
+            continue;
         }
+        count=0;
+        for (int k= 0; k < n; k++)
+        {
+            if (array[i]==array[k])
+            {
+               count++;
+            }
+        }
+        if (count>max_count)
+        {
+            a=0;
+            max_count=count;
+            arry_number[a]=array[i];
+            a++;
+        }
+        else if (count == max_count)
+        {
+            arry_number[a] = array[i];
+            a++;
+        }
+    }
+    for (int i = 0; i < a; i++)
+    {
+        printf("%d=%d\n",max_count,arry_number[i]);
     }
     return 0;
 }
