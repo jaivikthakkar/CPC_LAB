@@ -1,10 +1,17 @@
- #include <stdio.h>
-
- int main()
+#include <stdio.h>
+int main()
 {
-    int i = 0;
-    for (i = 0; i < 5; i = i++)
+    int x = 2;
+    int y = 2;
+
+    switch (x)
     {
-        printf("%d", i);
+    case y:
+        printf("A");
+        break;
+
+    default:
+        printf("B");
     }
+    return 0;
 }
